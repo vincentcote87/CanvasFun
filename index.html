@@ -2,12 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Irregular Shapes</title>
+    <title>Calander Clock</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 <body>
-    <canvas class="canvasClass" id="myCanvas"></canvas>
+    <canvas id="clock"></canvas>
+    <button onclick="speedUp();">Speed Up</button>
+    <button onclick="slowDown();">Slow Down</button>
+    <button onclick="regularSpeed(null);">Regular Speed</button>
+    <button onclick="resetClock();">Reset</button>
 
-    <script src="js/canvas.js"></script>
+    <script src="js/clock.js"></script>
 </body>
 </html>
