@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+
+    <style>
+        ul {
+            margin: 20px 0;
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+            margin: 5px 0;
+        }
+
+        .colour {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            float: left;
+        }
+
+        .answerSelect {
+            margin: 10px 10px;
+        }
+
+        .correct {
+            color: green;
+            font-size: 25px;
+            display: none;
+        }
+
+        .wrong {
+            color: red;
+            font-size: 25px;
+            display: none;
+        }
+
+        .ansBtn {
+            cursor: pointer;
+            border: solid black 1px;
+            background: #d3d3d3;
+            padding: 10px 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
+
+        .ansBtn:hover {
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="list">
+            <li>
+                <div class="colour" style="background: #099FFF"></div>
+                <select name="" id="q1" class="answerSelect">
+                    <option value="default" selected>Select an Answer</option>
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                    <option value="month">month</option>
+                </select>
+                <span class="correct" id="Q1C">&#10003</span>
+                <span class="wrong" id="Q1W">&#10007</span>
+            </li>
+            <li>
+                <div class="colour" style="background: #FF0000"></div>
+                <select name="" id="q2" class="answerSelect">
+                    <option value="default" selected>Select an Answer</option>
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                    <option value="month">month</option>
+                </select>
+                <span class="correct" id="Q2C">&#10003</span>
+                <span class="wrong" id="Q2W">&#10007</span>
+            </li>
+            <li>
+                <div class="colour" style="background: #CC00FF"></div>
+                <select name="" id="q3" class="answerSelect">
+                    <option value="default" selected>Select an Answer</option>
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                    <option value="month">month</option>
+                </select>
+                <span class="correct" id="Q3C">&#10003</span>
+                <span class="wrong" id="Q3W">&#10007</span>
+            </li>
+            <li>
+                <div class="colour" style="background: #00FF00"></div>
+                <select name="" id="q4" class="answerSelect">
+                    <option value="default" selected>Select an Answer</option>
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                    <option value="month">month</option>
+                </select>
+                <span class="correct" id="Q4C">&#10003</span>
+                <span class="wrong" id="Q4W">&#10007</span>
+            </li>
+            <li>
+                <div class="colour" style="background: #FFFF33"></div>
+                <select name="" id="q5" class="answerSelect">
+                    <option value="default" selected>Select an Answer</option>
+                    <option value="seconds">Seconds</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                    <option value="month">month</option>
+                </select>
+                <span class="correct" id="Q5C">&#10003</span>
+                <span class="wrong" id="Q5W">&#10007</span>
+            </li>
+        </ul>
+        <span class="ansBtn" onclick="checkAns()">Check Answers!</span>
+    </div>
+
+    <script>
+        function checkAns () {
+            let ansArray = [];
+            let questionList = document.getElementById('list');
+            // console.log(document.getElementsByClassName('correct'));
+            for (let e of document.getElementsByClassName('correct')) {
+                e.style.display = 'none';
+            }
+            for (let e of document.getElementsByClassName('wrong')) {
+                e.style.display = 'none';
+            }
+            for (let item of questionList.children) {
+               ansArray.push(item.children[1].value);
+            }
+            ansArray[0] === 'minutes' ? setAns(1, true) : setAns(1, false);
+            ansArray[1] === 'month' ? setAns(2, true) : setAns(2, false);
+            ansArray[2] === 'seconds' ? setAns(3, true) : setAns(3, false);
+            ansArray[3] === 'hours' ? setAns(4, true) : setAns(4, false);
+            ansArray[4] === 'days' ? setAns(5, true) : setAns(5, false);
+        }
+
+        function setAns(pos, isCorrect) {
+            let ansId = "Q" + pos + (isCorrect ? "C" : "W");
+            let ans = document.getElementById(ansId);
+            ans.style.display = "inline";
+        }
+    </script>
+</body>
+
+</html>
